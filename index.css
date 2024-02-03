@@ -1,0 +1,150 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap'); 
+
+* {
+    box-sizing: border-box;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Inter', sans-serif;
+}
+
+nav > a {
+    text-decoration: none;
+}
+
+.navbar {
+    padding: 0 1.5rem;
+    background-color: #FFF7ED;
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+}
+
+.vanlife-home {
+    padding: 2.25rem 0;
+    font-weight: 900;
+    line-height: 2.5rem;
+    font-size: 1.75rem;
+    cursor: pointer;
+}
+
+.navbar-routes {
+    font-weight: 600;
+    font-size: 1rem;
+    color: #4D4D4D;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.route-about {
+    padding-right: 0.75rem;
+}
+
+.home-route-main {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),url('./assets/images/Designer.png');
+    background-size: cover; /* Adjust as needed */
+    width: 100%;            /* Set width and height to fit your design */
+    color: white;
+    height: 74.5vh;
+}
+
+.home-container {
+    padding: 4rem 1.5rem;
+    text-align: left;
+}
+
+.home-first-subheading {
+    padding: 1rem 0;
+    font-weight: 800;
+    font-size: 3rem;
+    line-height: 2.5rem;
+}
+
+.home-desc-text {
+    padding: 4rem 0;
+    font-size: 1rem;
+    line-height: 1.5rem;
+    font-weight: 500;
+}
+.home-container > button {
+    background-color: #FF8C38;
+    border-radius: 5px;
+    width: 100%;
+    text-align: center;
+    color: #FFF7ED;
+    border-width: 0;
+    font-weight: 700;
+    font-size: 1rem;
+    line-height: 2rem;
+    margin-bottom: 0;
+    cursor: pointer;
+    padding: 0.75rem 0;
+}
+
+@media (min-width: 768px) {
+    .home-container > button {
+      width: 25%; /* Adjust the percentage value as needed */
+    }
+  }
+
+/* About Page Styling */
+
+.about-route {
+    background-color: #FFF7ED;
+}
+
+.about-top-image {
+    width: 100%;
+    height: 25vh;
+}
+
+.about-img {
+    width: 100%;
+    object-fit: cover;
+    height: 100%;
+}
+
+.about-heading {
+    padding: 2.5rem 0;
+    font-weight: 700;
+    line-height: 2.5rem;
+    font-size: 2rem;
+}
+
+.about-below-image {
+    padding: 2rem 1.5rem;
+}
+
+/* About Button Section */ 
+
+.button-div {
+    background-color: #FFCC8D;
+    margin: 1.5rem 0;
+    text-align: left;
+    padding: 1.5rem;
+    border-radius: 10px;
+}
+
+.button-div-text {
+    font-size: 1.5rem;
+    font-weight: 700;
+    line-height: 2rem;
+    letter-spacing: 0em;
+    padding-bottom: 1rem;
+}
+.button-div-button {
+    background-color: #161616;
+    border-radius: 10px;
+    color: white;
+    padding: 1rem;
+    border-width: 0;
+}
+/* Footer Styling */
+.footer-div {
+    background-color: #252525;
+    color: #AAAAAA;
+    padding: 1.5rem 6.75rem;
+    text-align: center;
+}
