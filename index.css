@@ -47,7 +47,6 @@ nav > a {
     background-size: cover; /* Adjust as needed */
     width: 100%;            /* Set width and height to fit your design */
     color: white;
-    height: 75.5vh;
 }
 
 .home-container {
@@ -87,8 +86,10 @@ nav > a {
     .home-container > button {
       width: 25%; /* Adjust the percentage value as needed */
     }
+    .home-route-main {
+        height: 73.2vh;
+    }
   }
-
 /* About Page Styling */
 
 .about-route {
@@ -146,6 +147,6 @@ nav > a {
 .footer-div {
     background-color: #252525;
     color: #AAAAAA;
-    padding: 1.5rem;
     text-align: center;
+    padding: 2rem 0;
 }
