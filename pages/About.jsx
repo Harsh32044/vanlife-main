@@ -1,9 +1,11 @@
+import AboutImage from '../assets/images/about2.jpg';
+
 export default function About() {
   return (
     <div className="about-route">
       <div className="about-container">
         <div className="about-top-image">
-          <img src='./assets/images/about2.jpg' alt="woman enjoying camper van trip" className="about-img" />
+          <img src={AboutImage} alt="woman enjoying camper van trip" className="about-img" />
         </div>
         <div className="about-below-image">
         <div className="about-heading">
