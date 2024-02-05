@@ -1,6 +1,7 @@
 {
   "name": "project",
   "dependencies": {
+    "dotenv": "^16.4.1",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-router": "^6.22.0",
@@ -8,6 +9,7 @@
   },
   "devDependencies": {
     "@vitejs/plugin-react": "*",
+    "miragejs": "^0.1.48",
     "vite": "latest"
   },
   "scripts": {

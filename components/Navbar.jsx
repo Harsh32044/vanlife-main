@@ -1,6 +1,6 @@
 import {  useNavigate } from "react-router-dom";
 
-export default function Navbar({children}) {
+export default function Navbar() {
     const navigate = useNavigate();
 
     const handleNavigation = (path) => {
@@ -15,7 +15,6 @@ export default function Navbar({children}) {
                 <div className="navbar-routes" onClick={() => handleNavigation("vans/")}>Vans</div>
             </div>
         </nav>
-        {children}
         </>
     )
 }
