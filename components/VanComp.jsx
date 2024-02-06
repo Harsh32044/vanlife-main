@@ -1,3 +1,5 @@
+import { useNavigate } from "react-router-dom";
+
 export default function VanComp({ vanItem }) {
   const vanTypeStyle = {
     backgroundColor:
@@ -16,9 +18,13 @@ export default function VanComp({ vanItem }) {
     borderRadius: '5px',
     padding: '0.25rem 1rem'
   };
+
+  const navigate = useNavigate()
+
+  const handleNav = (path) => navigate(path)
   //id, name, imageUrl,type, price
   return (
-    <div className="van-item-container">
+    <div className="van-item-container" onClick={() => handleNav(`/vans/${vanItem.id}`)}>
       <img
         src={vanItem.imageUrl}
         alt={vanItem.name}

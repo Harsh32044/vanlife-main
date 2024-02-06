@@ -7,6 +7,7 @@ import About from './pages/About'
 import Vans from './pages/Vans';
 import Footer from './components/Footer';
 import { makeServer } from './server.js';
+import VanItem from './components/VanItem.jsx';
 
 if (process.env.NODE_ENV === 'development') {
  makeServer({ environment: 'development' });
@@ -22,6 +23,7 @@ function App() {
       <Route path='/' element={<Home/>}/>
       <Route path='/about' element={<About/>}/>
       <Route path='/vans' element={<Vans/>}/>
+      <Route path='/vans/:id' element={<VanItem/>}/>
     </Routes>
     </Suspense>
     </BrowserRouter>

@@ -17,6 +17,14 @@ picture {
   display: block;
 }
 
+button {
+  transition: transform 0.1s ease-in-out;
+}
+
+button:hover {
+    transform: translate(1px, 1px);
+}
+
 nav > a {
   text-decoration: none;
 }
@@ -88,11 +96,6 @@ nav > a {
   margin-bottom: 0;
   cursor: pointer;
   padding: 0.75rem 0;
-  transition: transform 0.1s ease-in-out;
-}
-
-.home-container > button:hover {
-  transform: translate(1px, 1px);
 }
 
 @media (min-width: 768px) {
@@ -155,11 +158,6 @@ nav > a {
   padding: 1rem;
   border-width: 0;
   cursor: pointer;
-  transition: transform 0.1s ease-in-out;
-}
-
-.button-div-button:hover {
-  transform: translate(1px, 1px);
 }
 /* Footer Styling */
 .footer-div {
@@ -183,7 +181,6 @@ nav > a {
   font-size: 2rem;
   font-weight: 700;
   line-height: 2.25rem;
-  text-align: left;
   padding-bottom: 1.25rem;
 }
 
@@ -226,6 +223,10 @@ nav > a {
 }
 
 /* VanComponent */
+.van-item-container {
+  cursor: pointer;
+}
+
 .van-item-image {
   width: 100%;
   aspect-ratio: 1 / 1;
@@ -242,14 +243,66 @@ nav > a {
   font-size: 1.25rem;
   font-weight: 600;
   line-height: 2rem;
-  letter-spacing: 0em;
-  text-align: left;
 }
 
 .van-price {
   font-size: 1.25rem;
   font-weight: 600;
   line-height: 2rem;
-  letter-spacing: 0em;
   text-align: right;
+}
+
+/* Individual Van Route */
+
+.each-van-route {
+  padding: 2rem 1.25rem;
+  background-color: #fff7ed;
+}
+
+.back-to-vans {
+  color: #201f1d;
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 1.5rem;
+  letter-spacing: 0em;
+  text-align: left;
+}
+
+.each-van-img {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  align-self: center;
+  border-radius: 5px;
+  margin: 2rem 0;
+}
+
+.each-van-name {
+  color: #161616;
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: 2.125rem;
+  padding: 1rem 0;
+}
+
+.each-van-price {
+  font-weight: 700;
+  font-size: 1.5rem;
+}
+
+.each-van-desc {
+  padding: 1rem 0;
+  font-size: 1rem;
+font-weight: 500;
+line-height: 1.5rem;
+}
+
+.each-van-rentBtn {
+  padding: 0.75rem 1.25rem;
+  background-color: #FF8C38;
+  border-radius: 5px;
+  border: none;
+  color: white;
+  width: 100%;
+  cursor: pointer;
 }
