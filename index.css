@@ -66,7 +66,7 @@ nav > a {
 }
 
 .home-container {
-  padding: 4rem 1.5rem;
+  padding: 7.75rem 1.5rem;
   text-align: left;
 }
 
@@ -98,14 +98,6 @@ nav > a {
   padding: 0.75rem 0;
 }
 
-@media (min-width: 768px) {
-  .home-container > button {
-    width: 25%;
-  }
-  .home-route-main {
-    height: 73.2vh;
-  }
-}
 /* About Page Styling */
 
 .about-route {
@@ -264,8 +256,6 @@ nav > a {
   font-size: 1rem;
   font-weight: 500;
   line-height: 1.5rem;
-  letter-spacing: 0em;
-  text-align: left;
 }
 
 .each-van-img {
@@ -305,4 +295,22 @@ line-height: 1.5rem;
   color: white;
   width: 100%;
   cursor: pointer;
+}
+
+@media (min-width: 821px) {
+  .home-container > button {
+    width: 25%;
+  }
+
+  .each-van-div {
+    display: grid;
+    grid-template-columns: 1.8fr 1fr;
+    align-items: center;
+    gap: 4rem;
+  }
+
+  .each-van-img {
+    aspect-ratio: 1.5 / 1;
+    object-fit: cover;
+  }
 }
