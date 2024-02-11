@@ -1,7 +1,5 @@
 export default function Footer() {
     return (
-        <div className="footer-div">
-            <div>Ⓒ 2024 #VANLIFE</div>
-        </div>
+            <footer>&#169; 2024 #VANLIFE</footer>
     )
 }

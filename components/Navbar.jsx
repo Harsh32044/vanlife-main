@@ -1,21 +1,22 @@
-import {  useNavigate } from "react-router-dom";
+import {  Link, NavLink } from "react-router-dom";
 
 export default function Navbar() {
-    const navigate = useNavigate();
 
-    const handleNavigation = (path) => {
-    navigate(path);
-  };
+    const activeStyle ={
+        fontWeight: "bold",
+        textDecoration: "underline",
+        color: "#161616"
+    }
     return (
         <>
-        <nav className="navbar">
-            <div className="vanlife-home" onClick={() => handleNavigation("/")}>#VANLIFE</div>
-            <div className="navbar-routes-container">
-                <div className="navbar-routes" onClick={() => handleNavigation("/host")}>Host</div>
-                <div className="navbar-routes route-vans" onClick={() => handleNavigation("/vans")}>Vans</div>
-                <div className="navbar-routes"  onClick={() => handleNavigation("/about")}>About</div>
-            </div>
-        </nav>
+        <header className="navbar">
+            <Link className="vanlife-home" to="/" >#VANLIFE</Link>
+            <nav className="navbar-routes-container">
+                <NavLink to="/host" className="navbar-routes" style={({isActive})=> isActive ? activeStyle : null}>Host</NavLink>
+                <NavLink to="/vans" className="navbar-routes" style={({isActive})=> isActive ? activeStyle : null}>Vans</NavLink>
+                <NavLink to="/about" className="navbar-routes" style={({isActive})=> isActive ? activeStyle : null}>About</NavLink>
+            </nav>
+        </header>
         </>
     )
 }

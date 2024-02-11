@@ -10,6 +10,7 @@ body {
   padding: 0;
   font-family: "Inter", sans-serif;
   scrollbar-width: none;
+  background-color: #fff7ed;
 }
 
 img,
@@ -23,58 +24,67 @@ button {
 }
 
 button:hover {
-    transform: translate(1px, 1px);
+  transform: translate(1px, 1px);
 }
 
 nav a {
   text-decoration: none;
-  color: #4D4D4D;
+  color: #4d4d4d;
+  padding: 0.25rem 0.75rem;
+}
+
+.site-wrapper {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
 .navbar {
   padding: 0 1.5rem;
   background-color: #fff7ed;
   align-items: center;
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: 3fr 1fr;
 }
 
 .vanlife-home {
+  color: #000000;
   padding: 2rem 0;
   font-weight: 900;
   line-height: 2.5rem;
   font-size: 1.75rem;
   cursor: pointer;
-  }
+  text-decoration: none;
+}
+
+.navbar-routes-container {
+  display: flex;
+  justify-content: flex-end;
+}
 
 .navbar-routes {
   font-weight: 600;
   font-size: 1rem;
   color: #4d4d4d;
-  display: inline-block;
-  cursor: pointer;
+  padding: 0 0.5rem;
 }
 
-nav a:hover, .navbar-routes:hover {
+nav a:hover,
+.navbar-routes:hover {
   color: #161616;
   text-decoration: underline;
 }
 
-.route-vans {
-  padding: 0 0.75rem;
-}
-
-.home-route-main {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-    url("./assets/images/homeImg.jpg");
-  background-size: cover;
-  background-position: right center;
-  color: white;
-}
-
 .home-container {
-  padding: 7.75rem 1.5rem;
-  text-align: left;
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.46), rgba(0, 0, 0, 0.46)),
+    url("./assets/images/homeImg.jpg") no-repeat center center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  min-height: 350px;
+  color: white;
+  padding: 8rem 1.5rem;
 }
 
 .home-first-subheading {
@@ -159,13 +169,17 @@ nav a:hover, .navbar-routes:hover {
   cursor: pointer;
 }
 /* Footer Styling */
-.footer-div {
-  background-color: #252525;
+footer {
+  background-color: #161616;
   color: #aaaaaa;
-  text-align: center;
-  padding: 2rem 0;
+  height: 6rem;
+  display: flex;
+  flex-shrink: 0;
+  justify-content: center;
+  align-items: center;
+  margin-top: auto;
+  font-weight: 500;
 }
-
 /* Vans Route */
 
 .vans-route {
@@ -271,7 +285,6 @@ nav a:hover, .navbar-routes:hover {
   object-fit: cover;
   align-self: center;
   border-radius: 5px;
-  margin: 2rem 0;
 }
 
 .each-van-name {
@@ -290,13 +303,13 @@ nav a:hover, .navbar-routes:hover {
 .each-van-desc {
   padding: 1rem 0;
   font-size: 1rem;
-font-weight: 500;
-line-height: 1.5rem;
+  font-weight: 500;
+  line-height: 1.5rem;
 }
 
 .each-van-rentBtn {
   padding: 0.75rem 1.25rem;
-  background-color: #FF8C38;
+  background-color: #ff8c38;
   border-radius: 5px;
   border: none;
   color: white;
@@ -311,9 +324,10 @@ line-height: 1.5rem;
 
   .each-van-div {
     display: grid;
-    grid-template-columns: 1.8fr 1fr;
+    grid-template-columns: 1.5fr 1fr;
     align-items: center;
-    gap: 4rem;
+    gap: 2rem;
+    margin: 2rem 0;
   }
 
   .each-van-img {
@@ -333,5 +347,46 @@ line-height: 1.5rem;
   color: #4d4d4d;
   line-height: 1.5rem;
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
+}
+
+/* Host Vans */
+.home-van-route {
+  padding: 1rem 1.5rem;
+}
+
+.home-listed-vans {
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(20rem, 1.5fr));
+}
+.home-van-route-details {
+  font-size: 1.5rem;
+  font-weight: 700;
+  line-height: 1.25rem;
+  margin-bottom: 2rem;
+}
+
+.host-van-tileItem {
+  height: 6.5rem;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  background-color: white;
+  padding: 0 0.75rem;
+  border-radius: 10px;
+}
+
+.tileItem-img {
+  width: 64px;
+  object-fit: cover;
+  aspect-ratio: 1 / 1;
+  border-radius: 5px;
+  margin: 0.25rem 0.75rem;
+}
+
+.tileItem-name {
+  font-size: 1.25rem;
+  font-weight: 600;
+  line-height: 2rem;
 }
