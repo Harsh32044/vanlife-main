@@ -10,9 +10,10 @@ export default function Navbar() {
         <>
         <nav className="navbar">
             <div className="vanlife-home" onClick={() => handleNavigation("/")}>#VANLIFE</div>
-            <div>
-                <div className="navbar-routes route-about"  onClick={() => handleNavigation("/about")}>About</div>
-                <div className="navbar-routes" onClick={() => handleNavigation("vans/")}>Vans</div>
+            <div className="navbar-routes-container">
+                <div className="navbar-routes" onClick={() => handleNavigation("/host")}>Host</div>
+                <div className="navbar-routes route-vans" onClick={() => handleNavigation("/vans")}>Vans</div>
+                <div className="navbar-routes"  onClick={() => handleNavigation("/about")}>About</div>
             </div>
         </nav>
         </>

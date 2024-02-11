@@ -9,6 +9,7 @@ body {
   margin: 0;
   padding: 0;
   font-family: "Inter", sans-serif;
+  scrollbar-width: none;
 }
 
 img,
@@ -25,8 +26,9 @@ button:hover {
     transform: translate(1px, 1px);
 }
 
-nav > a {
+nav a {
   text-decoration: none;
+  color: #4D4D4D;
 }
 
 .navbar {
@@ -43,7 +45,7 @@ nav > a {
   line-height: 2.5rem;
   font-size: 1.75rem;
   cursor: pointer;
-}
+  }
 
 .navbar-routes {
   font-weight: 600;
@@ -53,8 +55,13 @@ nav > a {
   cursor: pointer;
 }
 
-.route-about {
-  padding-right: 0.75rem;
+nav a:hover, .navbar-routes:hover {
+  color: #161616;
+  text-decoration: underline;
+}
+
+.route-vans {
+  padding: 0 0.75rem;
 }
 
 .home-route-main {
@@ -313,4 +320,18 @@ line-height: 1.5rem;
     aspect-ratio: 1.5 / 1;
     object-fit: cover;
   }
+}
+
+.host-header {
+  padding: 1.5rem;
+  background-color: #fff7ed;
+}
+
+.navbar-host {
+  font-weight: 700;
+  font-size: 1rem;
+  color: #4d4d4d;
+  line-height: 1.5rem;
+  display: flex;
+  justify-content: space-between;
 }

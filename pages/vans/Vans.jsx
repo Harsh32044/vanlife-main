@@ -1,5 +1,5 @@
 import React from "react"
-import VanComp from "../components/VanComp"
+import VanComp from "../../components/VanComp"
 
 export default function Vans() {
     const [vans, setVans] = React.useState([])
