@@ -27,7 +27,7 @@ button:hover {
   transform: translate(1px, 1px);
 }
 
-nav a {
+nav a, a {
   text-decoration: none;
   color: #4d4d4d;
   padding: 0.25rem 0.75rem;
@@ -389,4 +389,37 @@ footer {
   font-size: 1.25rem;
   font-weight: 600;
   line-height: 2rem;
+}
+
+/* Host Van Item Page */
+.host-van-item {
+  background-color: #FFFFFF;
+  margin: 1.5rem;
+  border-radius: 10px;
+  padding: 1rem;
+}
+
+.host-van-item-top {
+  display: flex;
+  align-items: center;
+}
+
+.host-van-image {
+  width: 13rem;
+  object-fit: cover;
+  aspect-ratio: 1 / 1;
+  border-radius: 5px;
+  margin: 1rem 2rem 1rem 1rem;
+}
+
+.host-van-detail {
+  padding: 1.2rem 0.8rem;
+}
+
+@media (max-width: 470px) {
+  .host-van-item-top {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1rem;
+  }
 }

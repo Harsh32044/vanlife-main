@@ -3,9 +3,9 @@ import { useNavigate } from "react-router-dom";
 export default function VanComp({ vanItem }) {
   const vanTypeStyle = {
     backgroundColor:
-      vanItem.type === "Rugged"
+      vanItem.type === "rugged"
         ? "#115E59"
-        : vanItem.type === "Luxury"
+        : vanItem.type === "luxury"
         ? "#161616"
         : "#E17654",
     color: "white",
