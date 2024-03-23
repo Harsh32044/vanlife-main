@@ -160,14 +160,22 @@ nav a:hover,
   letter-spacing: 0em;
   padding-bottom: 1rem;
 }
-.button-div-button {
+.link-button {
+  display: inline-block;
+  text-align: center;
+  border: none;
+  padding: .75rem 1.375rem;
   background-color: #161616;
-  border-radius: 10px;
   color: white;
-  padding: 1rem;
-  border-width: 0;
-  cursor: pointer;
+  border-radius: 10px;
+  font-weight: 600;
+  transition: transform .1s ease-in-out;
 }
+
+.link-button:hover {
+  transform: translate(1px, 1px);
+}
+
 /* Footer Styling */
 footer {
   background-color: #161616;
@@ -197,35 +205,66 @@ footer {
   padding-bottom: 1.25rem;
 }
 
-.filterbuttons {
-  display: inline-flex;
-  color: #4d4d4d;
-  background-color: #ffead0;
-  font-size: 1rem;
+.van-list-filter-buttons {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.van-list-filter-buttons > button, a {
+  margin-right: 15px;
+}
+
+.van-type {
+  height: 34px;
+  padding: 6px 1.5rem;
+  font-style: normal;
   font-weight: 500;
-  line-height: 1.5rem;
-  text-align: center;
-  justify-content: center;
-  margin-right: 0.5rem;
+  border: none;
   border-radius: 5px;
-  padding: 0.25rem 1.25rem;
+  background-color: #FFEAD0;
+  color: #4D4D4D;
+  transition: 200ms all cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.clear-filters {
-  text-decoration: underline;
-  font-size: 1rem;
+.van-type:hover {
+  color: #FFEAD0;
+}
+
+.van-type:focus {
+  outline: none;
+}
+
+.van-type.selected {
+  color: #FFEAD0;
+}
+
+.van-type.simple:hover, .van-type.simple.selected {
+  background-color: #E17654;
+}
+
+.van-type.rugged:hover, .van-type.rugged.selected {
+  background-color: #115E59;
+}
+
+.van-type.luxury:hover, .van-type.luxury.selected {
+  background-color: #161616;
+}
+
+.van-type.clear-filters {
+  margin-left: -20px;
+  margin-right: 15px;
+  padding: 6px 26px;
+  font-style: normal;
   font-weight: 500;
-  line-height: 1.5rem;
-  text-align: left;
-  color: #4d4d4d;
-  display: inline-flex;
-  cursor: pointer;
-  margin-left: 0.5rem;
-  padding: 0.5rem 0 0;
+  border: none;
+  border-radius: 5px;
+  text-decoration: underline;
+  background-color: transparent;
+  color: #4D4D4D;
 }
 
-.clear-filters:hover {
-  color: rgba(0, 0, 0, 0.5);
+i[class*='van-type-'] {
+  padding: 7px 14px;
 }
 
 .vans-grid {
@@ -237,7 +276,8 @@ footer {
 
 /* VanComponent */
 .van-item-container {
-  cursor: pointer;
+  padding: 0;
+  color: #000000;
 }
 
 .van-item-image {
@@ -277,6 +317,7 @@ footer {
   font-size: 1rem;
   font-weight: 500;
   line-height: 1.5rem;
+  text-decoration: underline;
 }
 
 .each-van-img {
@@ -422,4 +463,23 @@ footer {
     flex-direction: column;
     margin-bottom: 1rem;
   }
+}
+
+.not-found-div {
+  height: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.not-found-button {
+  background-color: #161616;
+  border-radius: 5px;
+  color: white;
+  padding: 1rem;
+  display: block;
+  width: 75%;
+  font-weight: 600;
+  text-align: center;
 }

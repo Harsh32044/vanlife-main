@@ -1,20 +1,27 @@
-import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useOutletContext } from "react-router-dom";
 
 export default function HostVanPhotos() {
-  const params = useParams();
-  const [currentVan, setCurrentVan] = useState({});
-  useEffect(() => {
-    fetch(`/api/host/vans/${params.id}`)
-      .then((res) => res.json())
-      .then((data) => setCurrentVan(data.vans[0]));
-  }, [params.id]);
+  const currentVan = useOutletContext();
 
   return (
     <div className="host-van-detail">
       {currentVan.imageUrl ? (
-        <img src={currentVan.imageUrl} alt={currentVan.name} className="host-van-image"/>
-      ): <h2>Loading...</h2>}
+        <img
+          src={currentVan.imageUrl}
+          alt={currentVan.name}
+          className="host-van-image"
+        />
+      ) : (
+        <h2
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+          }}
+        >
+          Loading...
+        </h2>
+      )}
     </div>
   );
 }

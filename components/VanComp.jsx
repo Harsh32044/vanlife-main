@@ -1,6 +1,6 @@
-import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
-export default function VanComp({ vanItem }) {
+export default function VanComp({ vanItem, searchParams, typeFilter }) {
   const vanTypeStyle = {
     backgroundColor:
       vanItem.type === "rugged"
@@ -13,18 +13,18 @@ export default function VanComp({ vanItem }) {
     fontSize: "1rem",
     fontWeight: "600",
     lineHeight: "2rem",
-    letterSpacing: "0em",
     textAlign: "center",
     borderRadius: '5px',
     padding: '0.25rem 1rem'
   };
 
-  const navigate = useNavigate()
-
-  const handleNav = (path) => navigate(path)
-  //id, name, imageUrl,type, price
   return (
-    <div className="van-item-container" onClick={() => handleNav(`/vans/${vanItem.id}`)}>
+    <Link className="van-item-container" to={vanItem.id} state={
+      {
+        search: `?${searchParams.toString()}`,
+        type: typeFilter
+      }
+      }>
       <img
         src={vanItem.imageUrl}
         alt={vanItem.name}
@@ -38,6 +38,6 @@ export default function VanComp({ vanItem }) {
         </div>
       </div>
       <div style={vanTypeStyle}>{vanItem.type.toString()}</div>
-    </div>
+    </Link>
   );
 }

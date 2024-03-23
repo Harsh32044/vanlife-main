@@ -1,9 +1,10 @@
 import React from "react";
-import { Link, useParams } from "react-router-dom";
+import { Link, useParams, useLocation } from "react-router-dom";
 
 export default function VanItem() {
   const params = useParams();
   const [van, setVan] = React.useState({});
+  const location = useLocation()
 
   React.useEffect(() => {
     fetch(`/api/vans/${params.id}`)
@@ -11,10 +12,24 @@ export default function VanItem() {
       .then((data) => setVan(data.vans));
   }, [params.id]);
 
+  const search = location.state?.search || ""
+  const type = location.state?.type || "all"
+
+//   const getType = () => {
+//     let typeIndex, ampIndex;
+//     typeIndex = search.indexOf("type")
+//     ampIndex = search.indexOf("&") == -1 ? ampIndex = search.length : search.indexOf("&")
+//     if (typeIndex == -1) {
+//         return "all"
+//     }
+//     else {
+//         return search.slice(typeIndex + 5, ampIndex)
+//     }
+// }
   return (
     <div className="each-van-route">
-      <Link to={`/vans`} className="back-to-vans">
-        Back to all vans
+      <Link to={`..${search}`} relative="path" className="back-to-vans">
+      &larr; Back to {type} vans
       </Link>
       {van.imageUrl ? (
         <div className="each-van-div">
@@ -25,9 +40,9 @@ export default function VanItem() {
             <div
               style={{
                 backgroundColor:
-                  van.type === "Rugged"
+                  van.type === "rugged"
                     ? "#115E59"
-                    : van.type === "Luxury"
+                    : van.type === "luxury"
                     ? "#161616"
                     : "#E17654",
                 maxWidth: "fit-content",

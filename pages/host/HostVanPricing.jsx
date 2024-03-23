@@ -1,18 +1,24 @@
-import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useOutletContext } from "react-router-dom";
 
 export default function HostVanPricing() {
-  const params = useParams();
-  const [currentVan, setCurrentVan] = useState({});
-  useEffect(() => {
-    fetch(`/api/host/vans/${params.id}`)
-      .then((res) => res.json())
-      .then((data) => setCurrentVan(data.vans[0]));
-  }, [params.id]);
+  const currentVan = useOutletContext();
 
   return (
     <div className="host-van-detail">
-      <h2>{currentVan.price ? `$${currentVan.price}/day` : "Loading..."}</h2>
+      {/* <h2>{currentVan.price ? `$${currentVan.price}/day` : "Loading..."}</h2> */}
+      {currentVan.price ? (
+        <h2>{`$${currentVan.price}/day`}</h2>
+      ) : (
+        <h2
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+          }}
+        >
+          Loading...
+        </h2>
+      )}
     </div>
   );
 }

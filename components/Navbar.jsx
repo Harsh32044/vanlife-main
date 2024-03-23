@@ -12,9 +12,9 @@ export default function Navbar() {
         <header className="navbar">
             <Link className="vanlife-home" to="/" >#VANLIFE</Link>
             <nav className="navbar-routes-container">
-                <NavLink to="/host" className="navbar-routes" style={({isActive})=> isActive ? activeStyle : null}>Host</NavLink>
-                <NavLink to="/vans" className="navbar-routes" style={({isActive})=> isActive ? activeStyle : null}>Vans</NavLink>
-                <NavLink to="/about" className="navbar-routes" style={({isActive})=> isActive ? activeStyle : null}>About</NavLink>
+                <NavLink to="host" className="navbar-routes" style={({isActive})=> isActive ? activeStyle : null}>Host</NavLink>
+                <NavLink to="vans" className="navbar-routes" style={({isActive})=> isActive ? activeStyle : null}>Vans</NavLink>
+                <NavLink to="about" className="navbar-routes" style={({isActive})=> isActive ? activeStyle : null}>About</NavLink>
             </nav>
         </header>
         </>

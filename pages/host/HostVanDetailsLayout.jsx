@@ -37,6 +37,11 @@ export default function HostVanDetailsLayout() {
 
   return (
     <div className="host-van-item">
+      <NavLink
+                to=".."
+                relative="path"
+                className="back-button"
+            >&larr; <span>Back to all vans</span></NavLink>
         <div className="host-van-item-top">
             <img src={currentVan.imageUrl} alt={currentVan.name} className="host-van-image"/>
             <div>
@@ -48,27 +53,27 @@ export default function HostVanDetailsLayout() {
       <div className="host-vanitem-header">
         <nav className="navbar-host">
           <NavLink
-            to={`/host/vans/${params.id}`}
+            to="."
             end
             style={({ isActive }) => (isActive ? activeStyle : null)}
           >
             Details
           </NavLink>
           <NavLink
-            to={`/host/vans/${params.id}/pricing`}
+            to="pricing"
             style={({ isActive }) => (isActive ? activeStyle : null)}
           >
             Pricing
           </NavLink>
           <NavLink
-            to={`/host/vans/${params.id}/photos`}
+            to="photos"
             style={({ isActive }) => (isActive ? activeStyle : null)}
           >
             Photos
           </NavLink>
         </nav>
       </div>
-      <Outlet/>
+      <Outlet context={currentVan}/>
     </div>
   );
 }

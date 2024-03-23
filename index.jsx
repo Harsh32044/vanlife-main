@@ -17,6 +17,7 @@ import HostVanPricing from "./pages/host/HostVanPricing.jsx";
 import HostVanPhotos from "./pages/host/HostVanPhotos.jsx";
 
 import "./server.js";
+import NotFound from "./pages/NotFound.jsx";
 
 function App() {
   return (
@@ -29,6 +30,7 @@ function App() {
               <Route path="about" element={<About />} />
               <Route path="vans" element={<Vans />} />
               <Route path="vans/:id" element={<VanItem />} />
+              <Route path="*" element={<NotFound/>}/>
 
               <Route path="host" element={<HostLayout />}>
                 <Route index element={<Dashboard />} />
