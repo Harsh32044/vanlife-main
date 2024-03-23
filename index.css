@@ -176,6 +176,10 @@ nav a:hover,
   transform: translate(1px, 1px);
 }
 
+.link-button.home {
+  background-color: #ff8c38;
+}
+
 /* Footer Styling */
 footer {
   background-color: #161616;
@@ -359,7 +363,7 @@ i[class*='van-type-'] {
 }
 
 @media (min-width: 821px) {
-  .home-container > button {
+  .home-container > a {
     width: 25%;
   }
 

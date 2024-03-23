@@ -1,6 +1,10 @@
-import React, { Suspense } from "react";
+import React from "react";
 import ReactDOM from "react-dom/client";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { 
+  Route,
+  createBrowserRouter,
+  createRoutesFromElements,
+  RouterProvider } from "react-router-dom";
 import Home from "./pages/Home";
 import About from "./pages/About";
 import Vans from "./pages/vans/Vans.jsx";
@@ -15,17 +19,12 @@ import HostVanDetailsLayout from "./pages/host/HostVanDetailsLayout.jsx";
 import HostVanDetails from "./pages/host/HostVanDetails.jsx";
 import HostVanPricing from "./pages/host/HostVanPricing.jsx";
 import HostVanPhotos from "./pages/host/HostVanPhotos.jsx";
-
-import "./server.js";
 import NotFound from "./pages/NotFound.jsx";
 
-function App() {
-  return (
-    <>
-      <BrowserRouter>
-        <Suspense fallback={<h1>Loading...</h1>}>
-          <Routes>
-            <Route path="/" element={<Layout />}>
+import "./server.js";
+
+const router = createBrowserRouter(createRoutesFromElements(
+  <Route path="/" element={<Layout />}>
               <Route index element={<Home />} />
               <Route path="about" element={<About />} />
               <Route path="vans" element={<Vans />} />
@@ -45,10 +44,11 @@ function App() {
                 </Route>
               </Route>
             </Route>
-          </Routes>
-        </Suspense>
-      </BrowserRouter>
-    </>
+))
+
+function App() {
+  return (
+    <RouterProvider router={router}/>
   );
 }
 
