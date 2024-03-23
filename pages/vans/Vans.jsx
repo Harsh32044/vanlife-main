@@ -18,8 +18,7 @@ export default function Vans() {
         setVans(data);
       }
       catch (err) {
-        console.log("There was an error");
-        console.log(err);
+        setError(err)
       }
       finally{
         setLoading(false);
