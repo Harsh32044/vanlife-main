@@ -7,7 +7,7 @@ import {
   RouterProvider } from "react-router-dom";
 import Home from "./pages/Home";
 import About from "./pages/About";
-import Vans from "./pages/vans/Vans.jsx";
+import Vans, { loader as vansLoader } from "./pages/vans/Vans.jsx";
 import VanItem from "./pages/vans/VanItem.jsx";
 import Layout from "./components/Layout.jsx";
 import Dashboard from "./pages/host/Dashboard.jsx";
@@ -22,12 +22,13 @@ import HostVanPhotos from "./pages/host/HostVanPhotos.jsx";
 import NotFound from "./pages/NotFound.jsx";
 
 import "./server.js";
+import Error from "./components/Error.jsx";
 
 const router = createBrowserRouter(createRoutesFromElements(
   <Route path="/" element={<Layout />}>
               <Route index element={<Home />} />
               <Route path="about" element={<About />} />
-              <Route path="vans" element={<Vans />} />
+              <Route path="vans" element={<Vans />} loader={vansLoader} errorElement={<Error/>}/>
               <Route path="vans/:id" element={<VanItem />} />
               <Route path="*" element={<NotFound/>}/>
 
