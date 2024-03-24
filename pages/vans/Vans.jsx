@@ -1,50 +1,33 @@
 import React from "react";
 import VanComp from "../../components/VanComp";
-import { useSearchParams } from "react-router-dom";
+import { useSearchParams, useLoaderData } from "react-router-dom";
 import { getVans } from "../../api";
 
+export async function loader() {
+  return await getVans()
+}
+
 export default function Vans() {
-  const [vans, setVans] = React.useState([]);
   const [searchParams, setSearchParams] = useSearchParams();
-  const [loading, setLoading] = React.useState(false);
-  const [error, setError] = React.useState(null)
   const typeFilter = searchParams.get("type");
+  const vans = useLoaderData()
 
-  React.useEffect(() => {
-    async function loadVans() {
-      setLoading(true);
-      try {
-        const data = await getVans();
-        setVans(data);
-      }
-      catch (err) {
-        setError(err)
-      }
-      finally{
-        setLoading(false);
-      }
-    }
-
-    loadVans();
-  }, []);
 
   const filteredVan = typeFilter
     ? vans.filter((van) => van.type.toUpperCase() == typeFilter.toUpperCase())
     : vans;
   
   const vanElements  = <>
-    {filteredVan.length > 0 ? (
-            filteredVan.map((van) => (
-              <VanComp
-                key={van.id}
-                vanItem={van}
-                searchParams={searchParams}
-                typeFilter={typeFilter}
-              />
-            ))
-          ) : (
-            <h1>Loading...</h1>
-          )}
+  {
+    filteredVan.map((van) => (
+      <VanComp
+        key={van.id}
+        vanItem={van}
+        searchParams={searchParams}
+        typeFilter={typeFilter}
+      />
+    ))
+  }
     </>
   
   const handleFilterChange = (key, newValue) => {
@@ -57,22 +40,6 @@ export default function Vans() {
       return prevParams;
     });
   };
-
-  if (loading) {
-    return (
-      <h1 aria-live="polite" style={{ display: "flex", justifyContent: "center", alignItems: "center", }}>
-        Hang On! Loading...
-      </h1>
-    );
-  }
-
-  if (error) {
-    return (
-    <h1 style={{ display: "flex", justifyContent: "center", alignItems: "center", }} 
-      aria-live="assertive"> There was an error: {error.message}
-      </h1>
-    )
-  }
 
   return (
     <div className="vans-route">
