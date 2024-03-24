@@ -3,8 +3,8 @@ import VanComp from "../../components/VanComp";
 import { useSearchParams, useLoaderData } from "react-router-dom";
 import { getVans } from "../../api";
 
-export async function loader() {
-  return await getVans()
+export function loader() {
+  return getVans()
 }
 
 export default function Vans() {

@@ -1,59 +1,90 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import { 
+import {
   Route,
   createBrowserRouter,
   createRoutesFromElements,
-  RouterProvider } from "react-router-dom";
+  RouterProvider,
+} from "react-router-dom";
 import Home from "./pages/Home";
 import About from "./pages/About";
 import Vans, { loader as vansLoader } from "./pages/vans/Vans.jsx";
-import VanItem from "./pages/vans/VanItem.jsx";
+import VanItem, { loader as vanItemLoader } from "./pages/vans/VanItem.jsx";
 import Layout from "./components/Layout.jsx";
 import Dashboard from "./pages/host/Dashboard.jsx";
 import Reviews from "./pages/host/Reviews.jsx";
 import Income from "./pages/host/Income.jsx";
 import HostLayout from "./components/HostLayout.jsx";
-import HostVans from "./pages/host/HostVans.jsx";
-import HostVanDetailsLayout from "./pages/host/HostVanDetailsLayout.jsx";
+import HostVans, {loader as hostVansLoader } from "./pages/host/HostVans.jsx";
+import HostVanDetailsLayout, { loader as hostVanDetailsLoader, loader } from "./pages/host/HostVanDetailsLayout.jsx";
 import HostVanDetails from "./pages/host/HostVanDetails.jsx";
 import HostVanPricing from "./pages/host/HostVanPricing.jsx";
 import HostVanPhotos from "./pages/host/HostVanPhotos.jsx";
 import NotFound from "./pages/NotFound.jsx";
-
-import "./server.js";
+import Login, {loader as loginLoader} from "./pages/Login.jsx";
 import Error from "./components/Error.jsx";
 
-const router = createBrowserRouter(createRoutesFromElements(
-  <Route path="/" element={<Layout />}>
-              <Route index element={<Home />} />
-              <Route path="about" element={<About />} />
-              <Route path="vans" element={<Vans />} loader={vansLoader} errorElement={<Error/>}/>
-              <Route path="vans/:id" element={<VanItem />} />
-              <Route path="*" element={<NotFound/>}/>
+import "./server.js";
+import { requireAuth } from "./utils.js";
 
-              <Route path="host" element={<HostLayout />}>
-                <Route index element={<Dashboard />} />
-                <Route path="reviews" element={<Reviews />} />
-                <Route path="income" element={<Income />} />
-                <Route path="vans" element={<HostVans />} />
-                
-                <Route path="vans/:id" element={<HostVanDetailsLayout />}>
-                  <Route index element={<HostVanDetails />} />
-                  <Route path="pricing" element={<HostVanPricing />} />
-                  <Route path="photos" element={<HostVanPhotos />} />
-                </Route>
-              </Route>
-            </Route>
-))
+const router = createBrowserRouter(
+  createRoutesFromElements(
+    <Route path="/" element={<Layout />}>
+      <Route index element={<Home />} />
+      <Route path="about" element={<About />} />
+      <Route path="login" element={<Login />} loader={loginLoader}/>
+      <Route
+        path="vans"
+        element={<Vans />}
+        loader={vansLoader}
+        errorElement={<Error />}
+      />
+      <Route 
+        path="vans/:id" 
+        element={<VanItem />}
+        loader={vanItemLoader} />
+      <Route path="*" element={<NotFound />} />
+
+      <Route 
+        path="host" 
+        element={<HostLayout />}>
+        <Route 
+          index 
+          element={<Dashboard />} 
+          loader={async () => await requireAuth()} />
+        <Route 
+          path="reviews" 
+          element={<Reviews />} 
+          loader={async () => await requireAuth()} />
+        <Route 
+          path="income" 
+          element={<Income />} 
+          loader={async () => await requireAuth()} />
+        <Route 
+          path="vans" 
+          element={<HostVans />} 
+          loader={hostVansLoader} />
+
+        <Route 
+          path="vans/:id" 
+          element={<HostVanDetailsLayout />} 
+          loader={hostVanDetailsLoader}>
+            
+          <Route index element={<HostVanDetails />} loader={async () => await requireAuth()} />
+          <Route path="pricing" element={<HostVanPricing />} loader={async () => await requireAuth()}/>
+          <Route path="photos" element={<HostVanPhotos />} loader={async () => await requireAuth()}/>
+        </Route>
+      </Route>
+    </Route>
+  )
+);
 
 function App() {
-  return (
-    <RouterProvider router={router}/>
-  );
+  return <RouterProvider router={router} />;
 }
 
-ReactDOM.createRoot(document.getElementById("root")).render(
+const root = ReactDOM.createRoot(document.getElementById("root"))
+root.render(
   <React.StrictMode>
     <App />
   </React.StrictMode>

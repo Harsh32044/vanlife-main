@@ -1,15 +1,14 @@
-import { useEffect, useState } from "react";
-import { useParams, Outlet, NavLink } from "react-router-dom";
+import { useLoaderData, Outlet, NavLink } from "react-router-dom";
+import { getHostVans } from "../../api";
+import { requireAuth } from "../../utils";
+
+export async function loader({ params }) {
+  await requireAuth()
+  return getHostVans(params.id)
+}
 
 export default function HostVanDetailsLayout() {
-    const [currentVan, setCurrentVan] = useState({})
-    const params = useParams();
-
-    useEffect(() => {
-        fetch(`/api/host/vans/${params.id}`)
-        .then(res => res.json())
-        .then(data => setCurrentVan(data.vans[0]))
-    }, [params.id])
+    const currentVan = useLoaderData()[0]
 
     const vanTypeStyle = {
         backgroundColor:
@@ -38,8 +37,7 @@ export default function HostVanDetailsLayout() {
   return (
     <div className="host-van-item">
       <NavLink
-                to=".."
-                relative="path"
+                to="../vans"
                 className="back-button"
             >&larr; <span>Back to all vans</span></NavLink>
         <div className="host-van-item-top">
