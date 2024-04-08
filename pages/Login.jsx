@@ -48,6 +48,7 @@ export default function Login() {
                     {navigation.state == 'submitting' ? 'Logging In...' : 'Log in'}
                 </button>
             </Form>
+                <div style={{textAlign: "center"}}>Use <pre>b@b.com</pre> as username and <pre>p123</pre> as password</div>
         </div>
     )
 }
